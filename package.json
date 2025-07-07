@@ -1,43 +1,41 @@
 {
-  "name": "ignore",
-  "displayName": "ignore",
+  "name": "ignore-generator",
+  "displayName": "Ignore Generator",
   "description": "Generate ignore files (.gitignore, .dockerignore, etc.) from templates",
   "version": "0.0.1",
+  "publisher": "batuhanoztrk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/batuhanoztrk/vscode-ignore-generator"
+  },
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Programming Languages"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "gitignore.createIgnoreFile",
+        "command": "ignore-generator.createIgnoreFile",
         "title": "Create Ignore File",
         "category": "Ignore Files"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "gitignore.createIgnoreFile",
-        "key": "ctrl+shift+i",
-        "mac": "cmd+shift+i",
-        "when": "explorerViewletVisible"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "gitignore.createIgnoreFile",
+          "command": "ignore-generator.createIgnoreFile",
           "group": "2_workspace",
           "when": "explorerResourceIsFolder"
         }
       ],
       "commandPalette": [
         {
-          "command": "gitignore.createIgnoreFile"
+          "command": "ignore-generator.createIgnoreFile"
         }
       ]
     }
