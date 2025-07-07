@@ -6,7 +6,6 @@ import * as path from "path";
 
 interface IgnoreTemplate {
   label: string;
-  description: string;
   path: string;
 }
 
@@ -114,13 +113,9 @@ async function getAvailableTemplates(
 
     for (const templatePath of templatePaths) {
       const templateName = path.basename(templatePath, ".gitignore");
-      const category = templatePath.includes("/")
-        ? path.dirname(templatePath).split("/").pop()
-        : "General";
 
       templates.push({
         label: templateName,
-        description: `Category: ${category}`,
         path: templatePath,
       });
     }
@@ -139,7 +134,6 @@ async function selectTemplates(
 ): Promise<IgnoreTemplate[] | undefined> {
   const quickPickItems = templates.map((template) => ({
     label: template.label,
-    description: template.description,
     template: template,
   }));
 
