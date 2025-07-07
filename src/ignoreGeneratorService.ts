@@ -56,7 +56,10 @@ export class IgnoreGeneratorService {
         case FileAction.Cancel:
           return;
         case FileAction.Append:
-          await this.fileManager.appendToIgnoreFile(ignoreType, selectedTemplates);
+          await this.fileManager.appendToIgnoreFile(
+            ignoreType,
+            selectedTemplates
+          );
           return;
         case FileAction.Overwrite:
           // Fall through to create new file

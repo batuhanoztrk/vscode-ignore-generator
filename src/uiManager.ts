@@ -1,7 +1,12 @@
 import * as vscode from "vscode";
 import * as fs from "fs";
 import * as path from "path";
-import { IgnoreTemplate, IgnoreType, QuickPickTemplate, FileAction } from "./types";
+import {
+  IgnoreTemplate,
+  IgnoreType,
+  QuickPickTemplate,
+  FileAction,
+} from "./types";
 import { EXTENSION_PATHS, MESSAGES, UI_PLACEHOLDERS } from "./constants";
 
 export class UIManager {
@@ -49,7 +54,6 @@ export class UIManager {
   ): Promise<IgnoreTemplate[] | undefined> {
     const quickPickItems: QuickPickTemplate[] = templates.map((template) => ({
       label: template.label,
-      description: template.description,
       template: template,
     }));
 

@@ -23,13 +23,9 @@ export class TemplateManager {
 
       for (const templatePath of templatePaths) {
         const templateName = path.basename(templatePath, ".gitignore");
-        const category = templatePath.includes("/")
-          ? path.dirname(templatePath).split("/").pop() || "General"
-          : "General";
 
         templates.push({
           label: templateName,
-          description: `Category: ${category}`,
           path: templatePath,
         });
       }
@@ -44,7 +40,11 @@ export class TemplateManager {
   }
 
   async readTemplateContent(template: IgnoreTemplate): Promise<string> {
-    const templatePath = path.join(this.context.extensionPath, "src", template.path);
+    const templatePath = path.join(
+      this.context.extensionPath,
+      "src",
+      template.path
+    );
 
     try {
       return fs.readFileSync(templatePath, "utf8");
