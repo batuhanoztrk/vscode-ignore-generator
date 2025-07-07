@@ -5,6 +5,7 @@ A powerful VS Code extension that helps you quickly generate various ignore file
 ## 🚀 Features
 
 - **Multiple Ignore File Types**: Supports 36 different types of ignore files including:
+
   - `.gitignore` (Git)
   - `.dockerignore` (Docker)
   - `.npmignore` (NPM)
@@ -13,13 +14,15 @@ A powerful VS Code extension that helps you quickly generate various ignore file
   - And many more!
 
 - **Extensive Template Library**: Choose from 570+ pre-defined templates covering:
+
   - **Programming Languages**: Java, Python, JavaScript, TypeScript, C++, Go, Rust, and more
-  - **Frameworks**: React, Angular, Vue.js, Django, Laravel, Spring Boot, and more  
+  - **Frameworks**: React, Angular, Vue.js, Django, Laravel, Spring Boot, and more
   - **IDEs & Editors**: Visual Studio, IntelliJ, Xcode, Eclipse, and more
   - **Tools & Services**: Docker, Kubernetes, AWS, Firebase, and more
   - **Operating Systems**: Windows, macOS, Linux
 
-- **Smart File Management**: 
+- **Smart File Management**:
+
   - Create new ignore files
   - Append to existing files
   - Automatic timestamp and template labeling
@@ -40,6 +43,7 @@ A powerful VS Code extension that helps you quickly generate various ignore file
 ## 🎯 Usage
 
 ### Method 1: Context Menu (Recommended)
+
 1. Right-click on a folder in the Explorer panel
 2. Select "Create Ignore File" from the context menu
 3. Choose the type of ignore file you want to create
@@ -47,55 +51,49 @@ A powerful VS Code extension that helps you quickly generate various ignore file
 5. The file will be created and opened automatically
 
 ### Method 2: Command Palette
+
 1. Open Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
 2. Type "Create Ignore File"
 3. Follow the same steps as above
 
-## 📸 Screenshots
-
-### Context Menu Integration
-![Context Menu](images/context-menu.png)
-
-### Template Selection
-![Template Selection](images/template-selection.png)
-
-### Generated File
-![Generated File](images/generated-file.png)
-
 ## 🛠️ Supported Ignore File Types
 
-| File Type | Description |
-|-----------|-------------|
-| `.gitignore` | Git version control |
-| `.dockerignore` | Docker containerization |
-| `.npmignore` | NPM package publishing |
-| `.eslintignore` | ESLint linting |
-| `.prettierignore` | Prettier code formatting |
-| `.stylelintignore` | StyleLint CSS linting |
-| `.terraformignore` | Terraform infrastructure |
-| `.vercelignore` | Vercel deployment |
-| `.gcloudignore` | Google Cloud deployment |
-| And 27 more... | [See full list](src/ignore-types.list) |
+| File Type          | Description                            |
+| ------------------ | -------------------------------------- |
+| `.gitignore`       | Git version control                    |
+| `.dockerignore`    | Docker containerization                |
+| `.npmignore`       | NPM package publishing                 |
+| `.eslintignore`    | ESLint linting                         |
+| `.prettierignore`  | Prettier code formatting               |
+| `.stylelintignore` | StyleLint CSS linting                  |
+| `.terraformignore` | Terraform infrastructure               |
+| `.vercelignore`    | Vercel deployment                      |
+| `.gcloudignore`    | Google Cloud deployment                |
+| And 27 more...     | [See full list](src/ignore-types.list) |
 
 ## 📚 Template Categories
 
 ### Programming Languages
+
 Java, Python, JavaScript, TypeScript, C#, C++, Go, Rust, PHP, Ruby, Swift, Kotlin, Scala, Haskell, and many more.
 
 ### Web Frameworks
+
 React, Angular, Vue.js, Next.js, Nuxt.js, Svelte, Django, Laravel, Rails, Express.js, Flask, and more.
 
 ### Development Tools
+
 Docker, Kubernetes, Terraform, Gradle, Maven, CMake, Webpack, Babel, Jest, and more.
 
 ### IDEs & Editors
+
 Visual Studio Code, IntelliJ IDEA, Eclipse, Xcode, Sublime Text, Atom, Vim, and more.
 
 ## ⚙️ Extension Settings
 
 This extension contributes the following command:
 
-* `ignore-generator.createIgnoreFile`: Create a new ignore file from templates
+- `ignore-generator.createIgnoreFile`: Create a new ignore file from templates
 
 ## 🔧 Requirements
 
@@ -112,6 +110,7 @@ This extension contributes the following command:
 ### 0.0.1
 
 Initial release of Ignore Generator extension featuring:
+
 - Support for 36 different ignore file types
 - 570+ pre-defined templates
 - Context menu and command palette integration
