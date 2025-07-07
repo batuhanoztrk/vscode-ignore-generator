@@ -22,14 +22,24 @@ export class TemplateManager {
       const templates: IgnoreTemplate[] = [];
 
       for (const templatePath of templatePaths) {
-        const templateName = path.basename(templatePath, ".gitignore");
+        // Handle both .gitignore and .stack file extensions
+        let templateName = path.basename(templatePath);
+        if (templateName.endsWith('.gitignore')) {
+          templateName = templateName.replace('.gitignore', '');
+        } else if (templateName.endsWith('.stack')) {
+          templateName = templateName.replace('.stack', '');
+        }
+        
         const category = templatePath.includes("/")
           ? path.dirname(templatePath).split("/").pop() || "General"
           : "General";
 
+        // Add file type indicator for stack files
+        const fileType = templatePath.endsWith('.stack') ? ' (Stack)' : '';
+        
         templates.push({
           label: templateName,
-          description: `Category: ${category}`,
+          description: `Category: ${category}${fileType}`,
           path: templatePath,
         });
       }
