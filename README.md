@@ -1,71 +1,135 @@
-# ignore README
+# Ignore Generator
 
-This is the README for your extension "ignore". After writing up a brief description, we recommend including the following sections.
+A powerful VS Code extension that helps you quickly generate various ignore files (.gitignore, .dockerignore, etc.) from a comprehensive collection of pre-defined templates.
 
-## Features
+## 🚀 Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Multiple Ignore File Types**: Supports 36 different types of ignore files including:
+  - `.gitignore` (Git)
+  - `.dockerignore` (Docker)
+  - `.npmignore` (NPM)
+  - `.eslintignore` (ESLint)
+  - `.prettierignore` (Prettier)
+  - And many more!
 
-For example if there is an image subfolder under your extension project workspace:
+- **Extensive Template Library**: Choose from 570+ pre-defined templates covering:
+  - **Programming Languages**: Java, Python, JavaScript, TypeScript, C++, Go, Rust, and more
+  - **Frameworks**: React, Angular, Vue.js, Django, Laravel, Spring Boot, and more  
+  - **IDEs & Editors**: Visual Studio, IntelliJ, Xcode, Eclipse, and more
+  - **Tools & Services**: Docker, Kubernetes, AWS, Firebase, and more
+  - **Operating Systems**: Windows, macOS, Linux
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Smart File Management**: 
+  - Create new ignore files
+  - Append to existing files
+  - Automatic timestamp and template labeling
+  - Multiple template selection support
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Seamless Integration**:
+  - Right-click context menu in Explorer
+  - Command Palette access
+  - Automatic file opening after creation
 
-## Requirements
+## 📦 Installation
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X)
+3. Search for "Ignore Generator"
+4. Click Install
 
-## Extension Settings
+## 🎯 Usage
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### Method 1: Context Menu (Recommended)
+1. Right-click on a folder in the Explorer panel
+2. Select "Create Ignore File" from the context menu
+3. Choose the type of ignore file you want to create
+4. Select one or more templates from the list
+5. The file will be created and opened automatically
 
-For example:
+### Method 2: Command Palette
+1. Open Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
+2. Type "Create Ignore File"
+3. Follow the same steps as above
 
-This extension contributes the following settings:
+## 📸 Screenshots
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+### Context Menu Integration
+![Context Menu](images/context-menu.png)
 
-## Known Issues
+### Template Selection
+![Template Selection](images/template-selection.png)
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### Generated File
+![Generated File](images/generated-file.png)
 
-## Release Notes
+## 🛠️ Supported Ignore File Types
 
-Users appreciate release notes as you update your extension.
+| File Type | Description |
+|-----------|-------------|
+| `.gitignore` | Git version control |
+| `.dockerignore` | Docker containerization |
+| `.npmignore` | NPM package publishing |
+| `.eslintignore` | ESLint linting |
+| `.prettierignore` | Prettier code formatting |
+| `.stylelintignore` | StyleLint CSS linting |
+| `.terraformignore` | Terraform infrastructure |
+| `.vercelignore` | Vercel deployment |
+| `.gcloudignore` | Google Cloud deployment |
+| And 27 more... | [See full list](src/ignore-types.list) |
 
-### 1.0.0
+## 📚 Template Categories
 
-Initial release of ...
+### Programming Languages
+Java, Python, JavaScript, TypeScript, C#, C++, Go, Rust, PHP, Ruby, Swift, Kotlin, Scala, Haskell, and many more.
 
-### 1.0.1
+### Web Frameworks
+React, Angular, Vue.js, Next.js, Nuxt.js, Svelte, Django, Laravel, Rails, Express.js, Flask, and more.
 
-Fixed issue #.
+### Development Tools
+Docker, Kubernetes, Terraform, Gradle, Maven, CMake, Webpack, Babel, Jest, and more.
 
-### 1.1.0
+### IDEs & Editors
+Visual Studio Code, IntelliJ IDEA, Eclipse, Xcode, Sublime Text, Atom, Vim, and more.
 
-Added features X, Y, and Z.
+## ⚙️ Extension Settings
+
+This extension contributes the following command:
+
+* `ignore-generator.createIgnoreFile`: Create a new ignore file from templates
+
+## 🔧 Requirements
+
+- VS Code 1.60.0 or higher
+- An open workspace/folder
+
+## 🐛 Known Issues
+
+- Large template files may take a moment to load
+- Some templates may need customization for specific project needs
+
+## 📝 Release Notes
+
+### 0.0.1
+
+Initial release of Ignore Generator extension featuring:
+- Support for 36 different ignore file types
+- 570+ pre-defined templates
+- Context menu and command palette integration
+- Smart file management (create/append)
+- Automatic file opening after creation
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues and enhancement requests.
+
+## 📄 License
+
+This extension is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+Templates are sourced from the comprehensive [toptal/gitignore](https://github.com/toptal/gitignore) repository.
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Enjoy generating ignore files effortlessly!** 🎉
