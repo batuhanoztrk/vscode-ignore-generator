@@ -1,10 +1,10 @@
 {
   "name": "ignore",
   "displayName": "ignore",
-  "description": "",
+  "description": "Generate ignore files (.gitignore, .dockerignore, etc.) from templates",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.101.0"
+    "vscode": "^1.60.0"
   },
   "categories": [
     "Other"
@@ -14,10 +14,33 @@
   "contributes": {
     "commands": [
       {
-        "command": "ignore.helloWorld",
-        "title": "Hello World"
+        "command": "gitignore.createIgnoreFile",
+        "title": "Create Ignore File",
+        "category": "Ignore Files"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "gitignore.createIgnoreFile",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i",
+        "when": "explorerViewletVisible"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "gitignore.createIgnoreFile",
+          "group": "2_workspace",
+          "when": "explorerResourceIsFolder"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "gitignore.createIgnoreFile"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
@@ -28,7 +51,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.101.0",
+    "@types/vscode": "1.60.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
