@@ -4,6 +4,32 @@ All notable changes to the "Ignore Generator" extension will be documented in th
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.0] - 2025-01-XX
+
+### Added
+
+- 🚀 **Automatic Stack File Inclusion**: When you select a main template (e.g., ReactNative), the extension now automatically includes all related stack files
+  - ReactNative automatically includes: ReactNative.Android.stack, ReactNative.Buck.stack, ReactNative.Gradle.stack, ReactNative.Linux.stack, ReactNative.macOS.stack, ReactNative.Node.stack, ReactNative.Xcode.stack
+  - Django automatically includes: Django.Python.stack
+  - Flask automatically includes: Flask.Python.stack
+  - LAMP automatically includes: LAMP.Linux.stack, LAMP.PHP.stack
+  - And many more template-stack combinations
+
+### Enhanced
+
+- 📚 **Extended Template Library**: Added 17 stack files to complement existing templates
+  - Total templates now: 588+ (571 .gitignore + 17 .stack files)
+- 🎯 **Improved User Experience**: Stack files are automatically added and no longer clutter the template selection UI
+- 💬 **Better Feedback**: Success messages now show both selected templates and auto-added stack files
+- 📝 **Enhanced File Comments**: Generated files include comments about which stack files were automatically added
+
+### Technical Improvements
+
+- Smart template expansion logic that detects related stack files
+- Improved template parsing to handle both .gitignore and .stack file extensions
+- Enhanced UI filtering to show only selectable templates to users
+- Better categorization with file type indicators
+
 ## [0.0.1] - 2025-07-07
 
 ### Added

@@ -23,8 +23,8 @@ export class IgnoreGeneratorService {
         return;
       }
 
-      // Step 2: Get available templates
-      const templates = await this.templateManager.getAvailableTemplates();
+      // Step 2: Get available templates (excluding stack files for user selection)
+      const templates = await this.templateManager.getSelectableTemplates();
       if (templates.length === 0) {
         this.uiManager.showNoTemplatesError();
         return;

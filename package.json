@@ -2,7 +2,7 @@
   "name": "ignore-generator",
   "displayName": "Ignore Generator",
   "description": "Generate ignore files (.gitignore, .dockerignore, etc.) from templates",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "batuhanoztrk",
   "repository": {
     "type": "git",

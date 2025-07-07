@@ -33,7 +33,7 @@ export class FileManager {
     selectedTemplates: IgnoreTemplate[]
   ): Promise<void> {
     const ignoreFilePath = this.getIgnoreFilePath(ignoreType);
-    const content = await this.templateManager.generateContent(
+    const { content, autoAddedStacks } = await this.templateManager.generateContent(
       ignoreType,
       selectedTemplates,
       false
@@ -43,9 +43,15 @@ export class FileManager {
       fs.writeFileSync(ignoreFilePath, content, "utf8");
       await this.openFileInEditor(ignoreFilePath);
 
-      vscode.window.showInformationMessage(
-        MESSAGES.FILE_CREATED_SUCCESS(ignoreType, selectedTemplates.length)
-      );
+      const totalTemplates = selectedTemplates.length + autoAddedStacks.length;
+      let message = MESSAGES.FILE_CREATED_SUCCESS(ignoreType, totalTemplates);
+      
+      if (autoAddedStacks.length > 0) {
+        const stackNames = autoAddedStacks.map(s => s.label).join(', ');
+        message += ` (Auto-added stack files: ${stackNames})`;
+      }
+
+      vscode.window.showInformationMessage(message);
     } catch (error) {
       throw new Error(`Failed to create ${ignoreType}: ${error}`);
     }
@@ -56,7 +62,7 @@ export class FileManager {
     selectedTemplates: IgnoreTemplate[]
   ): Promise<void> {
     const ignoreFilePath = this.getIgnoreFilePath(ignoreType);
-    const appendContent = await this.templateManager.generateContent(
+    const { content: appendContent, autoAddedStacks } = await this.templateManager.generateContent(
       ignoreType,
       selectedTemplates,
       true
@@ -66,9 +72,15 @@ export class FileManager {
       fs.appendFileSync(ignoreFilePath, appendContent, "utf8");
       await this.openFileInEditor(ignoreFilePath);
 
-      vscode.window.showInformationMessage(
-        MESSAGES.TEMPLATES_APPENDED(selectedTemplates.length)
-      );
+      const totalTemplates = selectedTemplates.length + autoAddedStacks.length;
+      let message = MESSAGES.TEMPLATES_APPENDED(totalTemplates);
+      
+      if (autoAddedStacks.length > 0) {
+        const stackNames = autoAddedStacks.map(s => s.label).join(', ');
+        message += ` (Auto-added stack files: ${stackNames})`;
+      }
+
+      vscode.window.showInformationMessage(message);
     } catch (error) {
       throw new Error(`Failed to append to ignore file: ${error}`);
     }

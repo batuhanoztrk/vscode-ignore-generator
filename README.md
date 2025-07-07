@@ -12,18 +12,26 @@ A powerful VS Code extension that helps you quickly generate various ignore file
   - `.prettierignore` (Prettier)
   - And many more!
 
-- **Extensive Template Library**: Choose from 570+ pre-defined templates covering:
+- **Extensive Template Library**: Choose from 588+ pre-defined templates covering:
   - **Programming Languages**: Java, Python, JavaScript, TypeScript, C++, Go, Rust, and more
   - **Frameworks**: React, Angular, Vue.js, Django, Laravel, Spring Boot, and more  
   - **IDEs & Editors**: Visual Studio, IntelliJ, Xcode, Eclipse, and more
   - **Tools & Services**: Docker, Kubernetes, AWS, Firebase, and more
   - **Operating Systems**: Windows, macOS, Linux
 
+- **🚀 Smart Stack File Integration**: 
+  - **Automatic Detection**: When you select a main template (e.g., ReactNative), related stack files are automatically included
+  - **React Native**: Automatically adds Android, iOS, Node.js, Linux, macOS, Buck, Gradle, and Xcode configurations
+  - **Python Frameworks**: Django and Flask automatically include their Python-specific stack files
+  - **LAMP Stack**: Automatically includes Linux and PHP configurations
+  - **No Manual Selection**: Stack files are intelligently added - you don't need to select them manually
+
 - **Smart File Management**: 
   - Create new ignore files
   - Append to existing files
   - Automatic timestamp and template labeling
   - Multiple template selection support
+  - Clear feedback about auto-added stack files
 
 - **Seamless Integration**:
   - Right-click context menu in Explorer
@@ -44,12 +52,26 @@ A powerful VS Code extension that helps you quickly generate various ignore file
 2. Select "Create Ignore File" from the context menu
 3. Choose the type of ignore file you want to create
 4. Select one or more templates from the list
-5. The file will be created and opened automatically
+5. **✨ Stack files are automatically included** - if you select ReactNative, all related stack files (Android, iOS, Node.js, etc.) will be automatically added
+6. The file will be created and opened automatically with clear comments showing which templates and stack files were included
 
 ### Method 2: Command Palette
 1. Open Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
 2. Type "Create Ignore File"
 3. Follow the same steps as above
+
+### 🎉 Smart Features in Action
+
+When you select **ReactNative**, the extension automatically includes:
+- `ReactNative.Android.stack` - Android-specific ignore patterns
+- `ReactNative.Buck.stack` - Buck build system patterns  
+- `ReactNative.Gradle.stack` - Gradle build patterns
+- `ReactNative.Linux.stack` - Linux-specific patterns
+- `ReactNative.macOS.stack` - macOS-specific patterns
+- `ReactNative.Node.stack` - Node.js patterns
+- `ReactNative.Xcode.stack` - Xcode project patterns
+
+The success message will show: *"ReactNative template created with 7 additional stack files automatically included!"*
 
 ## 📸 Screenshots
 

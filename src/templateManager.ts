@@ -53,6 +53,51 @@ export class TemplateManager {
     }
   }
 
+  /**
+   * Gets templates available for user selection (excludes stack files since they're auto-added)
+   */
+  async getSelectableTemplates(): Promise<IgnoreTemplate[]> {
+    const allTemplates = await this.getAvailableTemplates();
+    // Filter out stack files from user selection since they'll be auto-added
+    return allTemplates.filter(template => template.path.endsWith('.gitignore'));
+  }
+
+  /**
+   * Automatically finds and includes related stack files for the selected templates
+   */
+  async expandTemplatesWithStacks(selectedTemplates: IgnoreTemplate[]): Promise<{
+    expandedTemplates: IgnoreTemplate[];
+    autoAddedStacks: IgnoreTemplate[];
+  }> {
+    const allTemplates = await this.getAvailableTemplates();
+    const expandedTemplates = [...selectedTemplates];
+    const autoAddedStacks: IgnoreTemplate[] = [];
+    const addedStackNames = new Set<string>();
+
+    for (const template of selectedTemplates) {
+      // Only process .gitignore templates (not stack files themselves)
+      if (template.path.endsWith('.gitignore')) {
+        const baseTemplateName = template.label;
+        
+        // Find all related stack files for this template
+        const relatedStacks = allTemplates.filter(t => 
+          t.path.endsWith('.stack') && 
+          t.label.startsWith(baseTemplateName + '.') &&
+          !addedStackNames.has(t.label)
+        );
+
+        // Add related stack files to the expanded list
+        for (const stackTemplate of relatedStacks) {
+          expandedTemplates.push(stackTemplate);
+          autoAddedStacks.push(stackTemplate);
+          addedStackNames.add(stackTemplate.label);
+        }
+      }
+    }
+
+    return { expandedTemplates, autoAddedStacks };
+  }
+
   async readTemplateContent(template: IgnoreTemplate): Promise<string> {
     const templatePath = path.join(this.context.extensionPath, "src", template.path);
 
@@ -68,7 +113,7 @@ export class TemplateManager {
     ignoreType: string,
     selectedTemplates: IgnoreTemplate[],
     isAppending: boolean = false
-  ): Promise<string> {
+  ): Promise<{ content: string; autoAddedStacks: IgnoreTemplate[] }> {
     return new Promise(async (resolve) => {
       let content = "";
 
@@ -79,14 +124,22 @@ export class TemplateManager {
         content += "\n" + COMMENT_TEMPLATES.APPEND_TIMESTAMP() + "\n";
       }
 
-      for (const template of selectedTemplates) {
+      // Automatically expand templates to include related stack files
+      const { expandedTemplates, autoAddedStacks } = await this.expandTemplatesWithStacks(selectedTemplates);
+
+      // Add info comment about auto-added stacks if any
+      if (autoAddedStacks.length > 0) {
+        content += `# Auto-added related stack files: ${autoAddedStacks.map(s => s.label).join(', ')}\n\n`;
+      }
+
+      for (const template of expandedTemplates) {
         const templateContent = await this.readTemplateContent(template);
         content += COMMENT_TEMPLATES.TEMPLATE_SECTION(template.label) + "\n";
         content += templateContent;
         content += "\n\n";
       }
 
-      resolve(content);
+      resolve({ content, autoAddedStacks });
     });
   }
 }
