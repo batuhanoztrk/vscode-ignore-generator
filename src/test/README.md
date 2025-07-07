@@ -1,123 +1,123 @@
 # Test Suite Documentation
 
-Bu dosya, Ignore Generator VS Code uzantısı için oluşturulan kapsamlı test suite'ini açıklar.
+This document describes the comprehensive test suite created for the Ignore Generator VS Code extension.
 
-## Test Yapısı
+## Test Structure
 
-### Test Dosyaları
+### Test Files
 
-1. **`extension.test.ts`** - Ana birim testler
-   - Extension aktivasyonu
-   - Komut kayıt işlemleri
-   - Dosya türü seçimi
-   - Template seçimi
-   - Dosya oluşturma işlemleri
-   - Hata yönetimi
-   - Kullanıcı etkileşimi iptali
+1. **`extension.test.ts`** - Main unit tests
+   - Extension activation
+   - Command registration operations
+   - File type selection
+   - Template selection
+   - File creation operations
+   - Error handling
+   - User interaction cancellation
 
-2. **`integration.test.ts`** - Entegrasyon testleri
-   - Tam iş akışı testleri
-   - Gerçek dünya senaryoları
-   - Performans ve kenar durumları
+2. **`integration.test.ts`** - Integration tests
+   - Complete workflow tests
+   - Real-world scenarios
+   - Performance and edge cases
 
-3. **`test-utils.ts`** - Test yardımcı fonksiyonları
-   - Mock veri sağlayıcıları
-   - Test kurulum fonksiyonları
-   - VS Code API mock'ları
+3. **`test-utils.ts`** - Test utility functions
+   - Mock data providers
+   - Test setup functions
+   - VS Code API mocks
 
-## Test Kapsamı
+## Test Coverage
 
 ### ✅ Extension Lifecycle
-- ✅ Extension aktivasyonu
-- ✅ Komut kaydı
-- ✅ Extension deaktivasyonu
+- ✅ Extension activation
+- ✅ Command registration
+- ✅ Extension deactivation
 
 ### ✅ File Type Selection
-- ✅ Ignore types dosyasından okuma
-- ✅ Geçersiz formatları filtreleme
-- ✅ QuickPick UI etkileşimi
-- ✅ Kullanıcı seçimi iptali
+- ✅ Reading from ignore types file
+- ✅ Filtering invalid formats
+- ✅ QuickPick UI interaction
+- ✅ User selection cancellation
 
 ### ✅ Template Management
-- ✅ Template listesi okuma
-- ✅ Kategori bazlı sıralama
-- ✅ Alfabetik sıralama
-- ✅ Çoklu template seçimi
-- ✅ Template dosyası okuma
-- ✅ Eksik template dosyası yönetimi
+- ✅ Reading template list
+- ✅ Category-based sorting
+- ✅ Alphabetical sorting
+- ✅ Multiple template selection
+- ✅ Template file reading
+- ✅ Missing template file handling
 
 ### ✅ File Operations
-- ✅ Yeni dosya oluşturma
-- ✅ Mevcut dosyaya ekleme (append)
-- ✅ Dosya üzerine yazma (overwrite)
-- ✅ Kullanıcı seçimi (Overwrite/Append/Cancel)
-- ✅ Dosya yolu oluşturma
-- ✅ Içerik formatlaması
+- ✅ Creating new files
+- ✅ Appending to existing files
+- ✅ Overwriting files
+- ✅ User choice (Overwrite/Append/Cancel)
+- ✅ File path construction
+- ✅ Content formatting
 
 ### ✅ Error Handling
-- ✅ Workspace bulunamama hatası
-- ✅ Dosya yazma hataları
-- ✅ Template listesi okuma hataları
-- ✅ Template bulunamama
-- ✅ Boş template listesi
+- ✅ Workspace not found error
+- ✅ File write errors
+- ✅ Template list read errors
+- ✅ Template not found
+- ✅ Empty template list
 
 ### ✅ User Experience
-- ✅ QuickPick konfigürasyonu
-- ✅ Uyarı mesajları
-- ✅ Bilgi mesajları
-- ✅ Hata mesajları
-- ✅ Dosya editörde açılması
+- ✅ QuickPick configuration
+- ✅ Warning messages
+- ✅ Information messages
+- ✅ Error messages
+- ✅ Opening file in editor
 
 ### ✅ Integration Scenarios
-- ✅ Tam iş akışı testleri
-- ✅ Çoklu template ile dosya oluşturma
-- ✅ Farklı ignore dosya türleri
-- ✅ Mevcut dosyaya ekleme
-- ✅ Kategori bazlı template seçimi
-- ✅ Büyük template setleri
-- ✅ Özel karakterler içeren template'ler
+- ✅ Complete workflow tests
+- ✅ File creation with multiple templates
+- ✅ Different ignore file types
+- ✅ Appending to existing files
+- ✅ Category-based template selection
+- ✅ Large template sets
+- ✅ Templates with special characters
 
 ### ✅ Edge Cases
-- ✅ Boş template'ler
-- ✅ Unicode karakterler
-- ✅ Özel semboller
-- ✅ Boşluk içeren dosya adları
-- ✅ Büyük template koleksiyonları
+- ✅ Empty templates
+- ✅ Unicode characters
+- ✅ Special symbols
+- ✅ File names with spaces
+- ✅ Large template collections
 
 ## Test Utilities
 
 ### MockFileSystem
-Dosya sistemi işlemlerini simüle eden mock sınıf:
-- Dosya okuma/yazma/ekleme işlemleri
-- Dosya varlığı kontrolü
-- Bellek tabanlı dosya yönetimi
+Mock class that simulates file system operations:
+- File read/write/append operations
+- File existence checks
+- Memory-based file management
 
 ### VSCodeMockHelper
-VS Code API'lerini mock'layan yardımcı sınıf:
-- QuickPick etkileşimleri
-- Mesaj dialog'ları
-- Workspace yönetimi
-- Text document işlemleri
+Helper class that mocks VS Code APIs:
+- QuickPick interactions
+- Message dialogs
+- Workspace management
+- Text document operations
 
 ### Mock Data Providers
-Test için standart mock verileri:
-- Ignore dosya türleri
-- Template listeleri
-- Template içerikleri
+Standard mock data for tests:
+- Ignore file types
+- Template lists
+- Template contents
 
-## Test Çalıştırma
+## Running Tests
 
-### Tüm Testleri Çalıştırma
+### Run All Tests
 ```bash
 npm test
 ```
 
-### Sadece Birim Testler
+### Unit Tests Only
 ```bash
 npm run test -- --grep "Extension Test Suite"
 ```
 
-### Sadece Entegrasyon Testleri
+### Integration Tests Only
 ```bash
 npm run test -- --grep "Integration Tests"
 ```
@@ -127,44 +127,44 @@ npm run test -- --grep "Integration Tests"
 npm run test:coverage
 ```
 
-## Test Geliştirme
+## Test Development
 
-### Yeni Test Ekleme
-1. İlgili test dosyasına yeni `test()` bloku ekleyin
-2. Gerekli mock'ları kurun
-3. Test senaryosunu uygulayın
-4. Sonuçları doğrulayın
+### Adding New Tests
+1. Add new `test()` block to the relevant test file
+2. Set up required mocks
+3. Implement test scenario
+4. Verify results
 
-### Mock Data Ekleme
-1. `test-utils.ts` dosyasında `defaultMockData` objesini güncelleyin
-2. Yeni template içerikleri ekleyin
-3. Gerekirse yeni yardımcı fonksiyonlar oluşturun
+### Adding Mock Data
+1. Update `defaultMockData` object in `test-utils.ts`
+2. Add new template contents
+3. Create new helper functions if needed
 
 ### Best Practices
-- Her test bağımsız olmalı
-- Mock'lar test başında kurulmalı
-- Test sonunda temizlik yapılmalı
-- Anlamlı test isimleri kullanın
-- Edge case'leri unutmayın
+- Each test should be independent
+- Mocks should be set up at test start
+- Clean up after tests
+- Use meaningful test names
+- Don't forget edge cases
 
-## Test Metrikleri
+## Test Metrics
 
-- **Toplam Test Sayısı**: 35+ test
-- **Test Kategorileri**: 8 ana kategori
-- **Code Coverage**: %95+ hedefleniyor
-- **Test Süresi**: ~5-10 saniye
-- **Mock Objeler**: 15+ mock helper
+- **Total Test Count**: 35+ tests
+- **Test Categories**: 8 main categories
+- **Code Coverage**: Targeting 95%+
+- **Test Duration**: ~5-10 seconds
+- **Mock Objects**: 15+ mock helpers
 
-## Bilinen Sınırlamalar
+## Known Limitations
 
-1. **VS Code API Mocking**: Tüm VS Code API'leri tam olarak mock'lanamıyor
-2. **File System**: Gerçek dosya sistemi işlemleri test edilmiyor
-3. **UI Testing**: Gerçek kullanıcı etkileşimi test edilmiyor
-4. **Performance**: Büyük dosyalar için performans test edilmiyor
+1. **VS Code API Mocking**: Not all VS Code APIs can be fully mocked
+2. **File System**: Real file system operations are not tested
+3. **UI Testing**: Real user interactions are not tested
+4. **Performance**: Performance with large files is not tested
 
-## İyileştirme Önerileri
+## Improvement Suggestions
 
-1. **E2E Testler**: Gerçek VS Code instance'ı ile test
-2. **Performance Tests**: Büyük template setleri için performans
-3. **Visual Tests**: UI component'lerin görsel testleri
-4. **Accessibility**: Erişilebilirlik testleri
+1. **E2E Tests**: Testing with real VS Code instance
+2. **Performance Tests**: Performance testing with large template sets
+3. **Visual Tests**: Visual testing of UI components
+4. **Accessibility**: Accessibility testing
