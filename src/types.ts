@@ -3,6 +3,17 @@ export interface IgnoreTemplate {
   path: string;
 }
 
+export interface TemplatePatch {
+  templateName: string;
+  path: string;
+}
+
+export interface TemplateStack {
+  templateName: string;
+  path: string;
+  name: string;
+}
+
 export interface QuickPickTemplate {
   label: string;
   template: IgnoreTemplate;
