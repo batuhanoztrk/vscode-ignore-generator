@@ -42,7 +42,8 @@
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
-    "compile": "tsc -p ./",
+    "copy-files": "cp src/*.list out/ && cp -r src/toptal out/toptal",
+    "compile": "tsc -p ./ && pnpm run copy-files",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",

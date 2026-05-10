@@ -1,7 +1,9 @@
+import * as path from "path";
+
 export const EXTENSION_PATHS = {
-  IGNORE_TYPES: "src/ignore-types.list",
-  TEMPLATES_LIST: "src/templates.list",
-  TEMPLATES_FOLDER: "src/toptal/templates",
+  IGNORE_TYPES: path.join(path.basename(__dirname), "ignore-types.list"),
+  TEMPLATES_LIST: path.join(path.basename(__dirname), "templates.list"),
+  TEMPLATES_FOLDER: path.join(__dirname, "toptal", "templates"),
 } as const;
 
 export const MESSAGES = {
