@@ -105,18 +105,6 @@ This extension contributes the following command:
 - Large template files may take a moment to load
 - Some templates may need customization for specific project needs
 
-## 📝 Release Notes
-
-### 0.0.1
-
-Initial release of Ignore Generator extension featuring:
-
-- Support for 36 different ignore file types
-- 570+ pre-defined templates
-- Context menu and command palette integration
-- Smart file management (create/append)
-- Automatic file opening after creation
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit issues and enhancement requests.
